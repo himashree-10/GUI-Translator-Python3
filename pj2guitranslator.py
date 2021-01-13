@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import ttk
 import tkinter as tk
 from PIL import Image, ImageTk
-from googletrans import Translator
+from googletrans import Translator,LANGUAGES
 from tkinter import messagebox
 
 root = tk.Tk()
@@ -28,7 +28,7 @@ def translate():
 
 # Deleting the words
 def clear():
-	t2.delete(1.0, 'end')
+	t1.delete(1.0, 'end')
 	t2.delete(1.0, 'end')
 
 img = ImageTk.PhotoImage(Image.open('google translate.png'))
@@ -46,7 +46,7 @@ auto_detect.current(0)
 l = tk.StringVar()
 choose_language = ttk.Combobox(root, width=20, textvariable = l, state='readonly', font=('Times New Roman', 10, 'bold'))
 
-choose_language['values'] = ('English', 'Bengali', 'Hindi', 'Chinese', 'Japanese', 'French', 'Urdu', 'Turkese', 'Spanish', 'Arabian', 'Telugu', 'Tamil', 'Malayalam', 'Kannada', 'Indonesian', 'German', 'Polish', 'Swiss', 'Swedish')
+choose_language['values'] = list(LANGUAGES.values())
 
 choose_language.place(x=290, y=70)
 choose_language.current(0)
